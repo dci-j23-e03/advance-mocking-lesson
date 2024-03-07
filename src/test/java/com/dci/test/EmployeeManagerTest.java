@@ -9,7 +9,8 @@ import org.mockito.Mock;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import org.mockito.runners.MockitoJUnitRunner;
+
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.dci.java.Employee;
 import com.dci.java.EmployeeDao;

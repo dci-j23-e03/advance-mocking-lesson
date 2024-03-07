@@ -3,7 +3,8 @@ package com.dci.java;
 public class EmployeeManager {
 	
 	public static void main(String[] args) {
-		EmployeeManager EM = new EmployeeManager();
+		EmployeeDao employeeDao1 = new EmployeeDao();
+		EmployeeManager EM = new EmployeeManager(employeeDao1);
 		
 		// load existing
 		System.out.println("Emp List: "+ EM.employeeDao.getAll());
@@ -26,9 +27,9 @@ public class EmployeeManager {
 	private EmployeeDao employeeDao;
 	private EmployeeIdGenerator idGenerator;
 
-	public EmployeeManager() {
-		employeeDao = new EmployeeDao();
-		employeeDao.initialize();
+	public EmployeeManager(EmployeeDao employeeDao) {
+		this.employeeDao = employeeDao;
+		this.employeeDao.initialize();
 		this.setEmployeeIdGenerator(employee -> employee.setId(Math.round(Math.random() * 100)));
 	}
 
